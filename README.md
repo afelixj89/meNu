@@ -1,4 +1,3 @@
-# meNu
 # MEnU: Culinary Creativity Unleashed
 
 Welcome to MEnU, a vibrant platform where culinary creativity knows no bounds and the joy of sharing delicious discoveries is limitless.
