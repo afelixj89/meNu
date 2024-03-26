@@ -1,0 +1,24 @@
+.commentsList {
+  padding: 0;
+}
+
+.commentsContainer {
+  margin: 2%;
+  padding: 1%;
+}
+
+/* .userData{
+
+
+} */
+
+.commentData {
+  border-radius: 60%;
+  padding: 3%;
+  background-color: rgba(255, 255, 255, 0.961);
+}
+
+.commentUserImage img {
+  width: 20%;
+  border-radius: 50%;
+}

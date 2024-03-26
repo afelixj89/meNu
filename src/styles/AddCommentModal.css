@@ -1,0 +1,20 @@
+.commentTextArea {
+  font-family: "Kalam", cursive;
+}
+
+.submitButtonModal {
+  font-family: "Kalam", cursive;
+  background-color: #f45f56;
+  border-radius: 10px;
+  color: white;
+  margin: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+}

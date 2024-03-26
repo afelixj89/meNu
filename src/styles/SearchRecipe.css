@@ -1,0 +1,42 @@
+.searchRecipeSubmitButtonModal {
+  font-family: "Kalam", cursive;
+  background-color: #f45f56;
+  border-radius: 10px;
+  color: white;
+  margin: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.searchRecipeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.closeModalButtonDiv {
+  font-size: 20px;
+  font-family: "Kalam", cursive;}
+
+.searchRecipeSearch{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchRecipeButton{
+    font-family: "Kalam", cursive;
+    background-color: #f45f56;
+    border-radius: 10px;
+    color: white;
+    margin: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.searchRecipeModalHeader{
+    display: flex;
+    justify-content: end;
+}

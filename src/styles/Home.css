@@ -1,0 +1,145 @@
+.container {
+  background-color: rgba(255, 255, 255, 0.591);
+  height: 100vh;
+  box-shadow: black 3px 3px 3px 3px;
+  font-family: "Kalam", cursive;
+  text-shadow: white 2px 2px 2px 2px;
+  overflow-y: auto;
+}
+
+.recipe {
+  background-color: #fef8e3a4;
+  text-align: center;
+  box-shadow: black 1px 1px 4px 2px;
+  margin: 10px;
+  height: 400px;
+  width: 80%;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f45e56bb;
+  -webkit-box-shadow: inset 1px 1px 0 rgb(0, 0, 0),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+
+.container::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #f45e5600;
+  -webkit-box-shadow: inset 0px 0px 0 rgb(0, 0, 0),
+    inset 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.recipeFeed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipeHeader {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+}
+
+li {
+  list-style: none;
+}
+
+.ingredientsAndMeasurements {
+  display: flex;
+  justify-content: center;
+}
+
+.userIcon {
+  width: 10%;
+  border-radius: 50%;
+  box-shadow: black 2px 3px;
+}
+
+.userIconTitle {
+  margin: 2%;
+  font-size: x-large;
+  font-weight: 600;
+  text-shadow: white 10px;
+}
+
+.listTitle {
+  margin-top: 6%;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.recipeFeedTitle {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.recipeImage {
+  margin-bottom: 10px;
+  width: 50%;
+  box-shadow: black 1px 1px 1px 1px;
+}
+
+.recipeComments {
+  margin: 0 auto;
+  height: 10%;
+  width: 50%;
+  background-color: white;
+  color: black;
+  box-shadow: black 1px 1px 2px 1px;
+  font-size: 20px;
+}
+
+.ingredients {
+  margin-top: 2px;
+  padding-left: 0;
+}
+
+.modalButton {
+  background-color: #f45f56;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  font-family: "Kalam", cursive;
+}
+
+.closeModalButton {
+  background-color: #f45f56;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.closeModalButtonDiv {
+  font-size: 20px;
+  font-family: "Kalam", cursive;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteButton {
+  background-color: #f45e56d0;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-style: normal;
+}
+

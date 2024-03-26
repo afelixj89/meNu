@@ -1,0 +1,210 @@
+body {
+  background-image: url("/src/assets/wallPaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Kalam", cursive;
+  margin: auto;
+  overflow: auto;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+
+.form-container {
+  display: flex;
+  width: 70%;
+  margin: 3%;
+}
+
+.intro-container {
+  background-color: #f45f56;
+  width: 45%;
+  padding-bottom: 15px;
+}
+
+#userForms {
+  background-color: #000000b9;
+  border: 2px solid #08080864;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 5px rgba(255, 255, 255, 0.714);
+  width: 55%;
+}
+
+
+#userFormsTitle {
+  color: #00a19b;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  font-family: "Kalam", cursive;
+}
+
+#userFormsTitle.text {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#userFormsButtons {
+  background-color: #f45f56;
+  border-radius: 10px;
+  color: white;
+  margin: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  padding: 10px;
+  font-family: "Kalam", cursive;
+}
+
+.userFormInputs {
+  background-color: #f8f6f01a;
+  border-radius: 10px;
+  font-weight: 400;
+  font-style: normal;
+  padding: 5px;
+  margin: 0;
+  width: 90%;
+  border-color: cornsilk;
+  font-family: "Kalam", cursive;
+}
+
+.input-title {
+  margin-bottom: 0;
+  font-family: sans-serif;
+  color: #00a19b;
+  font-family: "Kalam", cursive;
+}
+
+.names {
+  display: flex;
+  justify-content: space-around;
+}
+
+.username-description-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.p-3 {
+  padding-left: 2rem !important;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.passwords {
+  display: flex;
+  justify-content: space-around;
+}
+
+.toggletag {
+  text-align: center;
+  color: white;
+  font-family: "Kalam", cursive;
+}
+
+.toggletag:hover {
+  color: #00a19b;
+}
+
+.intro-title {
+  font-family: "Kalam", cursive;
+  font-optical-sizing: auto;
+  color: #f8f6f0;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.intro-paragraph {
+  font-family: "Kalam", cursive;
+  font-optical-sizing: auto;
+  color: #f8f6f0;
+  padding: 25px;
+  padding-bottom: 0;
+}
+
+.join {
+  padding-top: 0;
+  text-align: center;
+}
+
+.have-account {
+  text-align: center;
+  background-color: #ffffff;
+  color: rgb(255, 139, 139);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Kalam", cursive;
+}
+
+.have-account:hover {
+  background-color: #00a19b;
+  color: white;
+}
+
+.register-error {
+  color: #b13730;
+  text-align: center;
+}
+
+.email-picture-box {
+  margin-left: 5%;
+}
+
+.login-input {
+  margin-left: 20%;
+  width: 60%;
+}
+
+.haveAccountButton{
+    display: flex;
+    justify-content: center;
+}
+
+
+.storyToggle{
+    color: white;
+    font-family: "Kalam", cursive;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    height: 20%;
+    text-decoration: underline;
+}
+
+.storyToggleParent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.storyToggle:hover {
+    color: #f45e5600;
+}
+
+.storyToggle:hover ~ .intro-container {
+    display: block; 
+}
+
+.intro-container {
+    display: none;
+    background-color: #f45f56;
+    border: 2px solid #08080864;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.714);
+    width: 55%;
+    position: absolute; 
+    top: 80%;
+    left: 50%; 
+    transform: translateX(-50%);}
+
+    .creditImage{
+        text-align: center;
+        color: white;
+        font-family: "Kalam", cursive;
+    }
