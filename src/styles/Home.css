@@ -1,5 +1,5 @@
 .container {
-  background-color: rgba(255, 255, 255, 0.591);
+  background-color: rgba(255, 255, 255, 0.214);
   height: 100vh;
   box-shadow: black 3px 3px 3px 3px;
   font-family: "Kalam", cursive;
@@ -8,7 +8,8 @@
 }
 
 .recipe {
-  background-color: #fef8e3a4;
+  display: flex;
+  background-color: #ffffff71;
   text-align: center;
   box-shadow: black 1px 1px 4px 2px;
   margin: 10px;
@@ -45,10 +46,21 @@
   align-items: center;
 }
 
+.foodRecipeDiv {
+  padding: 3%;
+}
+
 .recipeHeader {
   display: flex;
-  align-items: center;
-  margin: 2%;
+  flex-direction: column;
+  border: black solid 2px;
+  padding: 2%;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background-color: rgba(97, 94, 94, 0.237);
+  box-shadow: rgba(0, 0, 0, 0.197) 2px 2px;
+  min-width: 30%;
 }
 
 li {
@@ -61,14 +73,14 @@ li {
 }
 
 .userIcon {
-  width: 10%;
+  width: 60%;
   border-radius: 50%;
   box-shadow: black 2px 3px;
 }
 
 .userIconTitle {
   margin: 2%;
-  font-size: x-large;
+  font-size: medium;
   font-weight: 600;
   text-shadow: white 10px;
 }
@@ -80,7 +92,8 @@ li {
 }
 
 .recipeFeedTitle {
-  font-size: 18px;
+  margin-top: 0.3%;
+  font-size: 1.2em;
   font-weight: 600;
   text-decoration: underline;
   text-transform: capitalize;
@@ -88,7 +101,7 @@ li {
 
 .recipeImage {
   margin-bottom: 10px;
-  width: 50%;
+  height: 60%;
   box-shadow: black 1px 1px 1px 1px;
 }
 
@@ -143,3 +156,55 @@ li {
   font-style: normal;
 }
 
+.recipeButtons {
+  display: flex;
+  justify-content: center;
+  height: 25%;
+}
+
+.linkIcons {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.instructionButton {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+.instructionButton:hover .linkIcons {
+  transform: scale(1.2);
+}
+
+.instructionButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f45e5641;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instructionButton:hover::before {
+  opacity: 1;
+}
+
+
+
+.instructionAnchor {
+  margin: 3%;
+}
+
+.calories {
+  margin: 0;
+  font-weight: 600;
+}

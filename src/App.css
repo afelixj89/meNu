@@ -12,7 +12,6 @@ body {
   height: 100%;
 }
 
-
 .form-container {
   display: flex;
   width: 70%;
@@ -26,13 +25,12 @@ body {
 }
 
 #userForms {
-  background-color: #000000b9;
+  background-color: #00000067;
   border: 2px solid #08080864;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 5px rgba(255, 255, 255, 0.714);
   width: 55%;
 }
-
 
 #userFormsTitle {
   color: #00a19b;
@@ -148,8 +146,9 @@ body {
 }
 
 .register-error {
-  color: #b13730;
+  color: #ff0000;
   text-align: center;
+  font-family: "Kalam", cursive;
 }
 
 .email-picture-box {
@@ -161,50 +160,57 @@ body {
   width: 60%;
 }
 
-.haveAccountButton{
-    display: flex;
-    justify-content: center;
+.haveAccountButton {
+  display: flex;
+  justify-content: center;
 }
 
-
-.storyToggle{
-    color: white;
-    font-family: "Kalam", cursive;
-    font-size: 2em;
-    width: 100%;
-    text-align: center;
-    height: 20%;
-    text-decoration: underline;
+.storyToggle {
+  color: white;
+  font-family: "Kalam", cursive;
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  height: 20%;
+  text-decoration: underline;
 }
 
-.storyToggleParent{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.storyToggleParent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .storyToggle:hover {
-    color: #f45e5600;
+  color: #f45e5600;
 }
 
 .storyToggle:hover ~ .intro-container {
-    display: block; 
+  display: block;
 }
 
 .intro-container {
-    display: none;
-    background-color: #f45f56;
-    border: 2px solid #08080864;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.714);
-    width: 55%;
-    position: absolute; 
-    top: 80%;
-    left: 50%; 
-    transform: translateX(-50%);}
+  display: none;
+  background-color: #f45f56;
+  border: 2px solid #08080864;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.714);
+  width: 55%;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-    .creditImage{
-        text-align: center;
-        color: white;
-        font-family: "Kalam", cursive;
-    }
+.creditImages {
+  text-align: center;
+  color: white;
+  font-family: "Kalam", cursive;
+}
+
+.creditImage {
+  
+  color: white;
+  font-family: "Kalam", cursive;
+  font-size: 50%;
+}
