@@ -19,9 +19,14 @@ function Home({ user, recipes }) {
   const [isViewCommentsOpen, setIsViewCommentsOpen] = useState(false);
   const [selectedRecipeIndex, setSelectedRecipeIndex] = useState(null);
   const [isRecipeModalOpen, setIsRecipeModalOpen] = useState(false);
+  const [comments, setComments] = useState([]);
 
-  const toggleCommentView = () => {
+  const toggleCommentView = async (recipeId) => {
     setIsViewCommentsOpen(!isViewCommentsOpen);
+    if (recipeId) {
+      const fetchedComments = await getCommentsbyRecipeId(recipeId);
+      setComments(fetchedComments);
+    }
   };
 
   useEffect(() => {
@@ -80,7 +85,6 @@ function Home({ user, recipes }) {
 
                 <div className="recipeButtons">
                   <a
-                    className="instructionAnchor"
                     href={`https://www.youtube.com/results?search_query=${recipe.mealName} recipe`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -93,9 +97,9 @@ function Home({ user, recipes }) {
                       />
                     </button>
                   </a>
-                  <a className="instructionAnchor" href="#">
+                
                     <button
-                      onClick={toggleCommentView}
+                      onClick={() => toggleCommentView(recipe._id)}
                       className="instructionButton"
                     >
                       <img
@@ -104,47 +108,50 @@ function Home({ user, recipes }) {
                         alt="Instructions"
                       />
                     </button>
-                  </a>
+                  
                   <ViewComments
                     isOpen={isViewCommentsOpen}
                     isClose={() => setIsViewCommentsOpen(false)}
+                    comments={comments}
                   />
 
-                  <a className="instructionAnchor" href="#">
-                    <button
-                      className="instructionButton"
-                      onClick={() => openRecipeModal(index)}
-                    >
-                      <img
-                        className="linkIcons"
-                        src={recipeIcon}
-                        alt="Instructions"
-                      />
-                    </button>
-                  </a>
+                  <button
+                    className="instructionButton"
+                    onClick={() => openRecipeModal(index)}
+                  >
+                    <img
+                      className="linkIcons"
+                      src={recipeIcon}
+                      alt="Instructions"
+                    />
+                  </button>
                 </div>
 
                 {selectedRecipeIndex === index && (
-           <Modal
-           isOpen={isRecipeModalOpen}
-           onRequestClose={closeRecipeModal}
-           style={{
-             content: {
-               width: "50%",
-               height: "50%",
-               margin: "auto",
-               overflow: "auto",
-               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-             },
-             overlay: {
-               backgroundColor: "rgba(0, 0, 0, 0.5)",
-             },
-           }}
-         >
-         
+                  <Modal
+                    isOpen={isRecipeModalOpen}
+                    onRequestClose={closeRecipeModal}
+                    style={{
+                      content: {
+                        width: "50%",
+                        height: "50%",
+                        margin: "auto",
+                        overflow: "auto",
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                      },
+                      overlay: {
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                      },
+                    }}
+                  >
                     <div className="recipeModalContent">
+                      <button
+                        className="closeModalButton"
+                        onClick={closeRecipeModal}
+                      >
+                        Close
+                      </button>
                       <RecipeItem recipe={recipe} userId={user.Id} />
-                      <button id="recipeModalButton" onClick={closeRecipeModal}>Close</button>
                     </div>
                   </Modal>
                 )}
@@ -167,7 +174,7 @@ function Home({ user, recipes }) {
                         className="closeModalButton"
                         onClick={() => setCurrentRecipeId(null)}
                       >
-                        X
+                        Close
                       </button>
                     </div>
                     <Comments
