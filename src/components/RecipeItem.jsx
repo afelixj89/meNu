@@ -1,8 +1,8 @@
 import React from "react";
 
-function RecipeItem( {recipe, userId, currentRecipeId} ) {
+function RecipeItem({ recipe, userId, currentRecipeId }) {
   return (
-    <div>
+    <div className="recipeItem">
       <div className="ingredientsAndMeasurements">
         <ul className="ingredients">
           <h5 className="listTitle">Ingredients</h5>

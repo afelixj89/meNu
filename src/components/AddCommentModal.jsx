@@ -1,36 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { createComment } from "../services/comments";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddCommentModal.css";
 
-function AddCommentModal({
-  comment,
-  setComment,
-  recipeId,
-  userId,
-  onRequestClose,
-}) {
-  let navigate = useNavigate();
-  // const [comment, setComment] = useState({comment:''}
-  // )
+function AddCommentModal({ recipeId, userId, onRequestClose }) {
+  const [commentText, setCommentText] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
-    setComment({
-      ...comment,
-      //   userId: userId,
-      //   recipeId: recipeId,
-      [name]: value,
-    });
+    setCommentText(event.target.value);
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    await createComment(comment, recipeId);
-    console.log(comment);
-    navigate("/home");
-    onRequestClose();
+    event.preventDefault();    
+    const newComment = {
+      userId: userId,
+      recipeId: recipeId,
+      comment: commentText,
+     
+    };
+    
+    try {
+      await createComment(newComment);
+      console.log("Comment added:", newComment, recipeId,userId);
+      onRequestClose();
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
   };
 
   return (
@@ -40,10 +36,9 @@ function AddCommentModal({
           className="commentTextArea"
           rows={10}
           placeholder="Comments"
-          value={comment.comment}
-          name="comment"
-          required
+          value={commentText}
           onChange={handleChange}
+          required
         />
         <button
           className="submitButtonModal"

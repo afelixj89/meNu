@@ -136,13 +136,13 @@ function Landing(props) {
       [event.target.name]: event.target.value,
     });
 
-  const renderLoginError = () => {
-    const toggleLoginForm = loginForm.isError ? "danger" : "";
-    if (loginForm.isError) {
-      return <p className="register-error">{loginForm.errorMsg}</p>;
-    }
-  };
-
+    const renderLoginError = () => {
+      if (loginForm.isError) {
+        return <p className="register-error">{loginForm.errorMsg}</p>;
+      }
+      return null; // Return null if there's no error
+    };
+    
   function handleRegisterLoginClick() {
     setFormToggle((prev) => !prev);
   }

@@ -48,19 +48,19 @@
 
 .foodRecipeDiv {
   padding: 3%;
+  width: 50%;
 }
 
 .recipeHeader {
   display: flex;
   flex-direction: column;
   border: black solid 2px;
-  padding: 2%;
   justify-content: center;
   position: sticky;
   top: 0;
   background-color: rgba(97, 94, 94, 0.237);
   box-shadow: rgba(0, 0, 0, 0.197) 2px 2px;
-  min-width: 30%;
+  width: 50%;
 }
 
 li {
@@ -73,7 +73,7 @@ li {
 }
 
 .userIcon {
-  width: 60%;
+  width: 50%;
   border-radius: 50%;
   box-shadow: black 2px 3px;
 }
@@ -177,7 +177,6 @@ li {
   background-color: transparent;
 }
 
-
 .instructionButton:hover .linkIcons {
   transform: scale(1.2);
 }
@@ -198,8 +197,6 @@ li {
   opacity: 1;
 }
 
-
-
 .instructionAnchor {
   margin: 3%;
 }
@@ -208,3 +205,17 @@ li {
   margin: 0;
   font-weight: 600;
 }
+
+.searchRecipeContainer {
+  margin-top: 2%;
+}
+
+.searchRecipeSearch {
+  margin-left: 1%;
+}
+.recipeModalButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

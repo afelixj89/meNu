@@ -1,44 +1,37 @@
-import { useState, useEffect } from "react";
-import { getRecipes } from "../services/recipes.js";
-import Modal from "react-modal";
+import { useState } from "react";
 import "../styles/SearchRecipe.css";
 
 function SearchRecipe({ recipes, setRecipes }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
-  const openModal = () => {
-    setModalIsOpen(true);
+  // Function to handle search
+  const handleSearch = () => {
+    // Filter recipes based on search query
+    const filtered = recipes.filter((recipe) =>
+      recipe.mealName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    // Update the recipes state with filtered recipes
+    setRecipes(filtered);
+    // Clear the search query
+    setSearchQuery("");
   };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  
 
   return (
     <div className="searchRecipeContainer">
-      <button className="searchRecipeSubmitButtonModal" onClick={openModal}>
-        Search For A Recipe
-      </button>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <div className="searchRecipeModalHeader">
-          <button className="closeModalButton" onClick={closeModal}>
-            X
-          </button>
-        </div>
-        <h2>Search For a Recipe</h2>
-        <div className="searchRecipeSearch">
+      <h2>Search For a Recipe:</h2>
+      <div className="searchRecipeSearch">
         <input
           type="text"
           placeholder="Enter Recipe"
-          value={null}
-          onChange={null}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)} // Update search query state
         />
-        <button className= "searchRecipeButton" onClick={null}>Search</button>
+        <div className="searchButtonDiv">
+        <button className="searchRecipeButton" onClick={handleSearch}>
+          Search
+        </button>
         </div>
-
-      </Modal>
+      </div>
     </div>
   );
 }

@@ -23,7 +23,7 @@ const DeleteButton = (props) => {
 
   return (
     <div>
-      {console.log("Recipe:", recipe)}
+      
       {user.id === recipe.userId._id && (
         <button
           onClick={() => deleteRecipe(oneRecipe.id)}
