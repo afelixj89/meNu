@@ -105,6 +105,21 @@ li {
   box-shadow: black 1px 1px 1px 1px;
 }
 
+/* Media Query for Small Screens (e.g., smartphones in landscape mode) */
+@media only screen and (max-width: 780px) {
+  .recipeImage {
+    height: 30% /* Ensuring the image height adjusts to fit smaller screens */
+  }
+}
+
+/* Media Query for Very Small Screens (e.g., compact smartphones or devices in portrait mode) */
+@media only screen and (max-width: 480px) {
+  .recipeImage {
+    height: 20%; /* Reducing image height for very small screens */
+  }
+}
+
+
 .recipeComments {
   margin: 0 auto;
   height: 10%;

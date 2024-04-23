@@ -146,35 +146,35 @@ function Dashboard({ user, recipes }) {
       </div>
       <div className="recipe_photos">
         <div className="recipeCardUser">
-          {recipes?.map((recipe) => (
-            <div className="root_recipe" key={recipe.recipeId}>
+          {recipes?.map((recipe, index) => (
+            <div className="root_recipe" key={`recipe_${index}`}>
               <div className="recipe_name">
-                <h3>Recipe:{recipe.mealName}</h3>
+                <h3 key={`recipe_name_${index}`}>Recipe:{recipe.mealName}</h3>
               </div>
               <div className="recipe_img">
-                <img src={recipe.image} alt={recipe.mealName} />
+                <img src={recipe.image} alt={recipe.mealName} key={`recipe_image_${index}`} />
               </div>
-              <div className="recipe_instructions">
+              <div className="recipe_instructions" key={`recipe_instructions_${index}`}>
                 <p>{recipe.instructions}</p>
               </div>
-              <div className="recipe_calories">
+              <div className="recipe_calories" key={`recipe_calories_${index}`}>
                 <h4>{recipe.calories}</h4>
               </div>
-              <div className="recipe_ingredients">
+              <div className="recipe_ingredients" key={`recipe_ingredients_${index}`}>
                 <ul>
                   Ingredient:
-                  {recipe.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient.name}</li>
+                  {recipe.ingredients.map((ingredient, i) => (
+                    <li key={`ingredient_${index}_${i}`}>{ingredient.name}</li>
                   ))}
                 </ul>
                 <ul>
                   Amount:
-                  {recipe.ingredients.map((ingredient) => (
-                    <li key={ingredient.quantity}>{ingredient.quantity}</li>
+                  {recipe.ingredients.map((ingredient, i) => (
+                    <li key={`ingredient_quantity_${index}_${i}`}>{ingredient.quantity}</li>
                   ))}
                 </ul>
               </div>
-              <button className="dbButton" onClick={() => handleDelete(recipe.recipeId)}>
+              <button className="dbButton" onClick={() => handleDelete(recipe.recipeId)} key={`recipe_button_${index}`}>
                 Delete Recipe
               </button>
             </div>
@@ -251,7 +251,7 @@ function Dashboard({ user, recipes }) {
           </div>
           <ul>
             {recipeForm?.ingredients?.map((ingredient, index) => (
-              <li key={index}>
+              <li key={`ingredient_form_${index}`}>
                 {ingredient.name} - {ingredient.quantity}
               </li>
             ))}
@@ -264,3 +264,4 @@ function Dashboard({ user, recipes }) {
 }
 
 export default Dashboard;
+

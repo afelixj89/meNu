@@ -37,11 +37,13 @@ export const editRecipe = async (id, recipeData) => {
   }
 };
 
+
 export const deleteRecipe = async (id) => {
   try {
     const response = await api.delete(`/recipe/delete/${id}`);
     return response.data;
   } catch (error) {
-    console.error("Error", error);
+    console.error("Error deleting recipe:", error);
+    throw error; // Re-throw the error to handle it elsewhere, if needed
   }
 };

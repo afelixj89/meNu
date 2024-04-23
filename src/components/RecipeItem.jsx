@@ -1,6 +1,6 @@
 import React from "react";
 
-function RecipeItem({ recipe, userId, currentRecipeId }) {
+function RecipeItem({ recipe }) {
   return (
     <div className="recipeItem">
       <div className="ingredientsAndMeasurements">

@@ -6,6 +6,7 @@ import Nav from "./components/Nav.jsx";
 import Landing from "./screens/Landing.jsx";
 import Dashboard from "./screens/Dashboard.jsx";
 import { getRecipes } from "./services/recipes.js";
+import Modal from 'react-modal'; // Import Modal
 
 import "./App.css";
 
@@ -34,6 +35,11 @@ function App() {
   }, []);
 
   const location = useLocation();
+
+  // Set the root element as the app element for React Modal
+  useEffect(() => {
+    Modal.setAppElement('#root');
+  }, []);
 
   return (
     <div className="App">

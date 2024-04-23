@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 import { createComment } from "../services/comments";
-import { useNavigate } from "react-router-dom";
 import "../styles/AddCommentModal.css";
 
 function AddCommentModal({ recipeId, userId, onRequestClose }) {
   const [commentText, setCommentText] = useState('');
-  const navigate = useNavigate();
+  
 
   const handleChange = (event) => {
     setCommentText(event.target.value);
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();    
+    event.preventDefault();  
+
     const newComment = {
       userId: userId,
-      recipeId: recipeId,
       comment: commentText,
-     
     };
     
     try {
-      await createComment(newComment);
-      console.log("Comment added:", newComment, recipeId,userId);
+      await createComment(newComment, recipeId);
+      console.log("Comment added:", newComment, recipeId, userId);
       onRequestClose();
     } catch (error) {
       console.error("Error adding comment:", error);

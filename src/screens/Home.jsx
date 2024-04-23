@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { deleteRecipe, getRecipes } from "../services/recipes.js";
+// import { deleteRecipe } from "../services/recipes.js";
 import { getCommentsbyRecipeId } from "../services/comments.js";
-import Comments from "../components/AddCommentModal.jsx";
+import AddCommentModal from "../components/AddCommentModal.jsx";
 import ViewComments from "../components/ViewComments.jsx";
-import SearchRecipe from "../components/SearchRecipe.jsx";
+// import SearchRecipe from "../components/SearchRecipe.jsx";
 import DeleteButton from "../components/DeleteButton.jsx";
 import icon from "../assets/userIcon.jpg";
 import Modal from "react-modal";
@@ -52,7 +52,7 @@ function Home({ user, recipes }) {
   return (
     <div>
       <div className="container">
-        <SearchRecipe />
+        {/* <SearchRecipe /> */}
 
         <div className="recipeFeed">
           {recipes.map((recipe, index) => (
@@ -151,7 +151,7 @@ function Home({ user, recipes }) {
                       >
                         Close
                       </button>
-                      <RecipeItem recipe={recipe} userId={user.Id} />
+                      <RecipeItem recipe={recipe} userId={user.id} />
                     </div>
                   </Modal>
                 )}
@@ -177,7 +177,7 @@ function Home({ user, recipes }) {
                         Close
                       </button>
                     </div>
-                    <Comments
+                    <AddCommentModal
                       recipeId={currentRecipeId}
                       userId={user.Id}
                       comment={null}
