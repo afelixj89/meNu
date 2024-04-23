@@ -5,7 +5,8 @@ import { editUser, getUser } from '../services/users.js';
 import '../styles/dashboard.css';
 
 function Dashboard({ user, recipes }) {
-  const [toggle, setToggle] = useState(false);
+  // Removed 'toggle' state as it was unused
+  // Removed 'setToggle' as it was unused
   const [showModal, setShowModal] = useState(false);
   const [showUserModal, setShowUserModal] = useState(false);
   const [recipeForm, setRecipeForm] = useState({
@@ -37,28 +38,21 @@ function Dashboard({ user, recipes }) {
   };
 
   useEffect(() => {
-    if (userInfo) {
-      setEditUserForm({
-        username: userInfo.username || '',
-        email: userInfo.email || '',
-        description: userInfo.description || '',
-        img: userInfo.img || '',
-      });
-    }
-  }, [userInfo]);
+    const fetchData = async () => {
+      if (user?.id) {
+        await fetchUser();
+      }
+    };
 
-  useEffect(() => {
-    if (user?.id) {
-      fetchUser();
-    }
-  }, [user?.id]);
+    fetchData();
+  }, [user?.id, fetchUser]); // Added fetchUser to the dependency array
 
   const handleCreateRecipe = async (e) => {
     e.preventDefault();
     try {
       await createRecipe(recipeForm);
       setShowModal(false);
-      setToggle(true);
+      // Removed 'setToggle(true)' as it was unused
       window.location.reload();
     } catch (error) {
       console.error('Error creating Recipes', error);
@@ -264,4 +258,3 @@ function Dashboard({ user, recipes }) {
 }
 
 export default Dashboard;
-
