@@ -1,10 +1,8 @@
-.containerSeperate{
+.containerSeperate {
   display: flex;
   height: 100vh;
   width: 100vw;
 }
-
-
 
 .dashboard_title {
   width: 60vw;
@@ -16,32 +14,28 @@
   box-shadow: 1vh 1vh 1vh #00000080;
   padding: 1%;
   margin-bottom: 3%;
-  
 }
 
 .user_profile {
   background-color: white;
-  width: 15vw;;
-  height: 70vh; /* Adjusted height */
+  width: 15vw;
+  height: 50vh; /* Adjusted height */
   box-shadow: 1vh 1vh 1vh #00000080;
   font-family: "Kalam", cursive;
   margin-right: 5%;
   margin-left: 2%;
-  
-  
 }
 
 .root_recipe {
   padding: 2.5%;
   font-family: "Kalam", cursive;
   background-color: white;
-  width: calc(50% - 4vh); /* Adjusted width */
   border: 0.1vh solid #000000;
   border-radius: 2vh;
   box-shadow: 1vh 1vh 1vh #00000080;
   margin-right: 2%;
   margin-bottom: 2%;
-
+  width: 50% !important;
 }
 
 .dbButton {
@@ -50,35 +44,45 @@
   border-radius: 2vh;
   color: white;
   margin: 2vh;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
-  font-size: 2vh;
-  padding: 1vh 2vh;
+  font-size: 80%;
+  width: 55%;
+  height: 10%;
+  padding: 1%;
 }
 
 .userDescription {
   background-color: rgba(128, 128, 128, 0.307);
-  font-size: 2vh;
+  font-size: 90%;
   width: 70%;
-  margin-left: 2vw;
   color: #f45e56bb;
-  margin-top: 2vh;
+  padding: 3%;
+  border: #000000 solid 2px;
 }
 
 .userUsername {
-  font-size: 2vh;
-  margin-left: 2vw;
+  font-size: 100%;
   margin-top: 1vh;
   padding-top: 1vh;
+  text-align: center;
 }
 
 .recipe_content {
   margin-bottom: 1vh;
 }
 
+.alignUserDescription {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .recipe_title {
-  font-size: 1.5vh;
+  font-size: 70%;
   margin-bottom: 0.5vh;
+  font-weight: 700;
+  text-align: center;
 }
 
 .recipe_image {
@@ -87,23 +91,34 @@
   margin-bottom: 1vh;
 }
 
+
+
 .recipe_description {
-  font-size: 1.3vh;
+  font-size: 60%;
+  text-align: center;
 }
 
 .recipe_calorie_title {
-  font-size: 1.5vh;
+  font-size: 70%;
+  text-align: center;
+
 }
 
 .ingredient_list_title,
 .amount_list_title {
   font-weight: bold;
+  font-size: 70%;
+
+
 }
 
 .ingredient_list_item,
 .amount_list_item {
   margin-left: 2vw;
   list-style-type: disc;
+  font-size: 50%;
+  
+  
 }
 
 .delete_button {
@@ -125,5 +140,25 @@
   width: 70vw;
   height: 60vh;
   overflow-x: auto;
-  clear: both; /* Clear the float */
+  box-shadow: 1vh 1vh 1vh #00000080;
 }
+
+.userImg {
+  width: 80%;
+}
+
+.userImgAlign{
+  display: flex;
+  justify-content: center;
+
+}
+
+.buttonCenterDb{
+  display: flex;
+  justify-content: center;
+}
+
+.recipe_ingredients{
+  display: flex;
+}
+

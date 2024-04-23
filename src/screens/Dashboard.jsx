@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { createRecipe, deleteRecipe } from "../services/recipes.js";
 import { editUser, getUser } from "../services/users.js";
 import "../styles/dashboard.css";
+import userIcon from "../assets/userIcon.jpg";
 
 function Dashboard({ user, recipes }) {
   const [showModal, setShowModal] = useState(false);
@@ -135,155 +136,156 @@ function Dashboard({ user, recipes }) {
   return (
     <div className="containerSeperate">
       <div className="user_profile">
-        <div className="userUsername">
-          {userInfo?.username || "Loading..."}
+        <div className="userUsername">{userInfo?.username || "Loading..."}</div>
 
-          <div className="userImg">
-            {userInfo?.img ? (
-              <img src={userInfo.img} alt="User" />
-            ) : (
-              "Loading..."
-            )}
-          </div>
+        <div className="userImgAlign">
+          {userInfo?.img ? (
+            <img className="userImg" src={userInfo.img} alt="User" />
+          ) : (
+            <img className="userImg" src={userIcon} alt="User Icon" />
+          )}
+        </div>
+        <div className="alignUserDescription">
           <div className="userDescription">
             {userInfo?.description || "Loading..."}
           </div>
         </div>
-      
-
-      <button className="dbButton" onClick={openUserModal}>
-        Edit Personal Info
-      </button>
-      <Modal
-        isOpen={showUserModal}
-        onRequestClose={closeUserModal}
-        contentLabel="Example Modal"
-      >
-        <form onSubmit={handleEditUserSubmit}>
-          <label>
-            Username:
-            <input
-              type="text"
-              name="username"
-              value={editUserForm.username}
-              onChange={handleEditUser}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="text"
-              name="email"
-              value={editUserForm.email}
-              onChange={handleEditUser}
-            />
-          </label>
-          <label>
-            Image:
-            <input
-              type="text"
-              name="img"
-              value={editUserForm.img}
-              onChange={handleEditUser}
-            />
-          </label>
-          <label>
-            Description:
-            <input
-              type="text"
-              name="description"
-              value={editUserForm.description}
-              onChange={handleEditUser}
-            />
-          </label>
-          <button className="dbButton" type="submit">
-            Save Changes
-          </button>
-        </form>
-      </Modal>
-
-      <button className="dbButton" onClick={openModal}>
-        Add Recipe
-      </button>
-      <Modal
-        isOpen={showModal}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-      >
-        <button onClick={() => setShowModal(false)}>Close</button>
-        <form onSubmit={handleCreateRecipe} className="createRecipeForm">
-          <label>
-            Meal Name:
-            <input
-              type="text"
-              name="mealName"
-              value={recipeForm.mealName}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Instructions:
-            <textarea
-              name="instructions"
-              value={recipeForm.instructions}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Image URL:
-            <input
-              type="text"
-              name="image"
-              value={recipeForm.image}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Calories:
-            <input
-              type="text"
-              name="calories"
-              value={recipeForm.calories}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <div className="ingredients_input">
+        <div className="buttonCenterDb">
+        <button className="dbButton" onClick={openUserModal}>
+          Edit Personal Info
+        </button>
+        </div>
+        <Modal
+          isOpen={showUserModal}
+          onRequestClose={closeUserModal}
+          contentLabel="Example Modal"
+        >
+          <form onSubmit={handleEditUserSubmit}>
             <label>
-              Ingredient Name:
+              Username:
               <input
                 type="text"
-                name="name"
-                value={newIngredient.name}
-                onChange={ingredientHandleChange}
+                name="username"
+                value={editUserForm.username}
+                onChange={handleEditUser}
               />
             </label>
             <label>
-              Quantity:
+              Email:
               <input
                 type="text"
-                name="quantity"
-                value={newIngredient.quantity}
-                onChange={ingredientHandleChange}
+                name="email"
+                value={editUserForm.email}
+                onChange={handleEditUser}
               />
             </label>
-            <button type="button" onClick={handleAddIngredient}>
-              Add Ingredient
+            <label>
+              Image:
+              <input
+                type="text"
+                name="img"
+                value={editUserForm.img}
+                onChange={handleEditUser}
+              />
+            </label>
+            <label>
+              Description:
+              <input
+                type="text"
+                name="description"
+                value={editUserForm.description}
+                onChange={handleEditUser}
+              />
+            </label>
+            <button className="dbButton" type="submit">
+              Save Changes
             </button>
-          </div>
-          <ul>
-            {recipeForm?.ingredients?.map((ingredient, index) => (
-              <li key={`ingredient_form_${index}`}>
-                {ingredient.name} - {ingredient.quantity}
-              </li>
-            ))}
-          </ul>
-          <button type="submit">Add Recipe</button>
-        </form>
-      </Modal>
+          </form>
+        </Modal>
+          <div className="buttonCenterDb">
+        <button className="dbButton" onClick={openModal}>
+          Add Recipe
+        </button>
+        </div>
+        <Modal
+          isOpen={showModal}
+          onRequestClose={closeModal}
+          contentLabel="Example Modal"
+        >
+          <button onClick={() => setShowModal(false)}>Close</button>
+          <form onSubmit={handleCreateRecipe} className="createRecipeForm">
+            <label>
+              Meal Name:
+              <input
+                type="text"
+                name="mealName"
+                value={recipeForm.mealName}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Instructions:
+              <textarea
+                name="instructions"
+                value={recipeForm.instructions}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Image URL:
+              <input
+                type="text"
+                name="image"
+                value={recipeForm.image}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <label>
+              Calories:
+              <input
+                type="text"
+                name="calories"
+                value={recipeForm.calories}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            <div className="ingredients_input">
+              <label>
+                Ingredient Name:
+                <input
+                  type="text"
+                  name="name"
+                  value={newIngredient.name}
+                  onChange={ingredientHandleChange}
+                />
+              </label>
+              <label>
+                Quantity:
+                <input
+                  type="text"
+                  name="quantity"
+                  value={newIngredient.quantity}
+                  onChange={ingredientHandleChange}
+                />
+              </label>
+              <button type="button" onClick={handleAddIngredient}>
+                Add Ingredient
+              </button>
+            </div>
+            <ul>
+              {recipeForm?.ingredients?.map((ingredient, index) => (
+                <li key={`ingredient_form_${index}`}>
+                  {ingredient.name} - {ingredient.quantity}
+                </li>
+              ))}
+            </ul>
+            <button type="submit">Add Recipe</button>
+          </form>
+        </Modal>
       </div>
 
       <div>
@@ -296,7 +298,7 @@ function Dashboard({ user, recipes }) {
 
         <div className="recipeCardUser">
           {recipes?.map((recipe, index) => (
-            <div className="root_recipe" key={`recipe_${index}`}>
+            <div className="root_recipe" id="recipeCard" key={`recipe_${index}`}>
               <div className="recipe_name recipe_content">
                 <h3 className="recipe_title" key={`recipe_name_${index}`}>
                   Recipe: {recipe.mealName}
@@ -350,7 +352,7 @@ function Dashboard({ user, recipes }) {
                 </ul>
               </div>
               <button
-                className="dbButton delete_button"
+                className="dbButton"
                 onClick={() => handleDelete(recipe.recipeId)}
                 key={`recipe_button_${index}`}
               >
@@ -360,12 +362,6 @@ function Dashboard({ user, recipes }) {
           ))}
         </div>
       </div>
-
-      {/* <div className="user_profile">
-        <div className="userUsername">{userInfo?.username || 'Loading...'}</div>
-        <div className="userImg">{userInfo?.img ? <img src={userInfo.img} alt="User" /> : 'Loading...'}</div>
-        <div className="userDescription">{userInfo?.description || 'Loading...'}</div>
-      </div> */}
     </div>
   );
 }
