@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Modal from 'react-modal';
 import { createRecipe, deleteRecipe } from '../services/recipes.js';
 import { editUser, getUser } from '../services/users.js';
 import '../styles/dashboard.css';
 
 function Dashboard({ user, recipes }) {
-  // Removed 'toggle' state as it was unused
-  // Removed 'setToggle' as it was unused
   const [showModal, setShowModal] = useState(false);
   const [showUserModal, setShowUserModal] = useState(false);
   const [recipeForm, setRecipeForm] = useState({
@@ -28,14 +26,14 @@ function Dashboard({ user, recipes }) {
   });
   const [userInfo, setUserInfo] = useState(null);
 
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     try {
       const userInformation = await getUser(user?.id);
       setUserInfo(userInformation);
     } catch (error) {
       console.error('Error getting user', error);
     }
-  };
+  }, [user?.id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,14 +43,13 @@ function Dashboard({ user, recipes }) {
     };
 
     fetchData();
-  }, [user?.id, fetchUser]); // Added fetchUser to the dependency array
+  }, [user?.id, fetchUser]);
 
   const handleCreateRecipe = async (e) => {
     e.preventDefault();
     try {
       await createRecipe(recipeForm);
       setShowModal(false);
-      // Removed 'setToggle(true)' as it was unused
       window.location.reload();
     } catch (error) {
       console.error('Error creating Recipes', error);
@@ -111,7 +108,7 @@ function Dashboard({ user, recipes }) {
   const handleEditUserSubmit = async (e) => {
     e.preventDefault();
     try {
-      const updatedUser = await editUser(user?.id, editUserForm);
+      await editUser(user?.id, editUserForm);
       closeUserModal();
       window.location.reload();
     } catch (error) {
