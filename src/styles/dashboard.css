@@ -27,7 +27,7 @@
 }
 
 .root_recipe {
-  padding: 2.5%;
+  padding: 3.5%;
   font-family: "Kalam", cursive;
   background-color: white;
   border: 0.1vh solid #000000;
@@ -35,7 +35,7 @@
   box-shadow: 1vh 1vh 1vh #00000080;
   margin-right: 2%;
   margin-bottom: 2%;
-  width: 50% !important;
+  height: fit-content;
 }
 
 .dbButton {
@@ -70,6 +70,8 @@
 
 .recipe_content {
   margin-bottom: 1vh;
+  display: flex;
+  justify-content: center;
 }
 
 .alignUserDescription {
@@ -162,3 +164,6 @@
   display: flex;
 }
 
+ol, ul {
+  padding-left: 0 !important;
+}
